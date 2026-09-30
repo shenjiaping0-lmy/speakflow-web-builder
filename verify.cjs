@@ -1,0 +1,28 @@
+const fs=require('node:fs');
+const vm=require('node:vm');
+const assert=require('node:assert/strict');
+const path=require('node:path');
+const sandbox={};vm.createContext(sandbox);vm.runInContext(fs.readFileSync(path.join(__dirname,'app.js'),'utf8'),sandbox);
+const {LocalPatternAnalyzer,EXAMPLES,validateSentence}=sandbox.SpeakFlowCore;
+const analyzer=new LocalPatternAnalyzer();
+const plain=value=>JSON.parse(JSON.stringify(value));
+let assertions=0;
+function check(name,fn){fn();assertions++;console.log('PASS '+name)}
+check('Default sentence stresses do and weekend',()=>assert.deepEqual(plain(analyzer.analyzeSync(EXAMPLES[0]).tokens.filter(t=>t.stressed).map(t=>t.key)),['do','weekend']));
+check('Spoken reduction remains distinct and preserves punctuation',()=>assert.equal(analyzer.analyzeSync(EXAMPLES[0]).spoken,'Whaddaya gonna do this weekend?'));
+check('After-work example has three meaningful groups',()=>assert.deepEqual(plain(analyzer.analyzeSync(EXAMPLES[1]).groups.map(g=>g.text)),['When I finish work,',"I'm going to meet a friend",'for dinner.']));
+check('Contractions retain their proper classification',()=>assert(analyzer.analyzeSync(EXAMPLES[1]).features.some(f=>f.type==='Contraction'&&f.from==="I'm")));
+check('Assimilation, elision and dropped sounds are conditional',()=>{const a=analyzer.analyzeSync(EXAMPLES[3]);assert(a.features.some(f=>f.type==='Assimilation'));assert(a.features.some(f=>f.type==='Elision'));assert(a.features.some(f=>f.type==='Dropped sound'));assert(a.spoken.endsWith('night?'))});
+check('No gonna reduction before a destination noun',()=>assert(!analyzer.analyzeSync('I am going to school.').spoken.includes('gonna')));
+check('No reduction across punctuation',()=>assert(!analyzer.analyzeSync('Keep going. To do this, ask for help.').spoken.includes('gonna')));
+check('Written contractions and negatives are not indiscriminately reduced',()=>assert(analyzer.analyzeSync("I can't do that.").tokens.find(t=>t.key==="can't").stressed));
+check('Unknown sentences retain standard spelling',()=>assert.equal(analyzer.analyzeSync('Beautiful birds fly.').spoken,'Beautiful birds fly.'));
+check('Confirmed links are marked',()=>assert(analyzer.analyzeSync('Pick it up.').spoken.includes('Pick‿it‿up')));
+check('New input produces new content and stress',()=>{const a=analyzer.analyzeSync('We enjoy reading books because stories inspire us.');assert(a.tokens.find(t=>t.key==='stories').stressed);assert.equal(a.groups.length,2);assert.equal(a.text,'We enjoy reading books because stories inspire us.')});
+check('Single words remain usable',()=>{const a=analyzer.analyzeSync('Hello!');assert.equal(a.groups.length,1);assert.equal(a.tokens[0].stressed,true)});
+check('Unstressed function words receive weak forms',()=>assert(analyzer.analyzeSync('We can read a book.').features.some(f=>f.type==='Weak form'&&f.from==='can')));
+check('Clause-final auxiliary is strong',()=>{const a=analyzer.analyzeSync('Yes, I can.');assert(a.tokens.at(-1).stressed);assert(!a.features.some(f=>f.type==='Weak form'&&f.from==='can'))});
+check('Empty, non-English, excessive and invalid inputs fail intentionally',()=>{for(const input of ['',null,'你好','12345','a'.repeat(361),'a '.repeat(66)])assert.throws(()=>validateSentence(input))});
+check('All thought groups cover their exact sentence tokens',()=>{for(const text of [...EXAMPLES,'If it rains we can stay home and watch a movie.','I love books. Do you?','Hello!']){const a=analyzer.analyzeSync(text);let index=0;for(const g of a.groups){assert.equal(g.start,index);assert.equal(g.text,text.slice(a.tokens[g.start].start,a.tokens[g.end].end));index=g.end+1;}assert.equal(index,a.tokens.length)}});
+check('Embedded HTML and source use identical application code',()=>{const html=fs.readFileSync(path.join(__dirname,'dist/index.html'),'utf8');const script=html.match(/<script id="speakflow-app">([\s\S]*?)<\/script>/)[1].trim();assert.equal(script,fs.readFileSync(path.join(__dirname,'app.js'),'utf8').trim());new vm.Script(script);assert.equal(html,fs.readFileSync(path.join(__dirname,'SpeakFlow.html'),'utf8'));const markup=html.split('<script id="speakflow-data">')[0];const ids=[...markup.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);const idset=new Set(ids);for(const match of script.matchAll(/(?<!\$)\$\('([^']+)'\)/g))if(!match[1].endsWith('-'))assert(idset.has(match[1]),'Missing DOM id '+match[1]);for(const m of markup.matchAll(/<use href="#([^"]+)"/g))assert(idset.has(m[1]),'Missing icon '+m[1]);});
+console.log('\n'+assertions+' meaningful static/core checks passed. Browser voice and microphone hardware were not exercised.');

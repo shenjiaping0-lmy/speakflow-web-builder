@@ -1,0 +1,52 @@
+{
+  "dialogues": [
+    {"id":"weekend","title":"Weekend plans","level":"A2","scene":"约朋友过周末","focus":"going to → gonna · want to → wanna","lines":[
+      {"role":"A","text":"What are you going to do this weekend?","zh":"你这个周末打算做什么？"},
+      {"role":"B","text":"I'm going to meet a friend for coffee.","zh":"我打算和朋友喝咖啡。"},
+      {"role":"A","text":"Do you want to come with us?","zh":"你想跟我们一起去吗？"},
+      {"role":"B","text":"I'd love to. What time are you meeting?","zh":"我很乐意。你们几点见面？"}]},
+    {"id":"coffee","title":"Coffee, please","level":"A2","scene":"在咖啡店点单","focus":"have‿a · cup‿of · weak forms","lines":[
+      {"role":"A","text":"Could I have a cup of coffee, please?","zh":"请给我一杯咖啡，好吗？"},
+      {"role":"B","text":"Of course. Would you like any milk?","zh":"当然。你想加点牛奶吗？"},
+      {"role":"A","text":"Just a little, thank you.","zh":"一点点就好，谢谢。"},
+      {"role":"B","text":"Here you are. Have a nice day!","zh":"给你。祝你今天愉快！"}]},
+    {"id":"favour","title":"A small favour","level":"A2","scene":"请朋友帮个小忙","focus":"pick‿it‿up · put‿it‿on","lines":[
+      {"role":"A","text":"Can you pick it up for me?","zh":"你能帮我捡起来吗？"},
+      {"role":"B","text":"Sure. Where should I put it?","zh":"当然。我应该放在哪里？"},
+      {"role":"A","text":"Put it on the table, please.","zh":"请放在桌子上。"},
+      {"role":"B","text":"No problem. I'll do it now.","zh":"没问题。我现在就来。"}]},
+    {"id":"directions","title":"Finding your way","level":"A2","scene":"问路与指路","focus":"get to · at‿all · thought groups","lines":[
+      {"role":"A","text":"Can you tell me how to get to the station?","zh":"你能告诉我去车站怎么走吗？"},
+      {"role":"B","text":"Go straight, then turn left at the end of the street.","zh":"直走，然后在街道尽头左转。"},
+      {"role":"A","text":"Is it far from here?","zh":"离这里远吗？"},
+      {"role":"B","text":"Not at all. It's about five minutes away.","zh":"一点也不远。大约五分钟。"}]},
+    {"id":"after-work","title":"After work","level":"B1","scene":"下班后的安排","focus":"meet‿a · going to · meaningful pauses","lines":[
+      {"role":"A","text":"What are you doing after work?","zh":"你下班后做什么？"},
+      {"role":"B","text":"When I finish work, I'm going to meet a friend for dinner.","zh":"下班后，我准备和朋友吃晚饭。"},
+      {"role":"A","text":"That sounds nice. Where are you going?","zh":"听起来不错。你们去哪里？"},
+      {"role":"B","text":"There's a new place near the station. Do you want to join us?","zh":"车站附近有家新店。你想一起吗？"}]},
+    {"id":"catching-up","title":"Catching up","level":"B1","scene":"聊聊最近的消息","focus":"did you → didja · las(t) night · tell (h)im","lines":[
+      {"role":"A","text":"Did you get a chance to talk to him last night?","zh":"你昨晚有机会和他聊聊吗？"},
+      {"role":"B","text":"Yes, we talked about next week.","zh":"有，我们聊了下周的事。"},
+      {"role":"A","text":"Could you tell him I might be late?","zh":"你能告诉他我可能会迟到吗？"},
+      {"role":"B","text":"Of course. I'll send him a message.","zh":"当然。我会给他发消息。"}]},
+    {"id":"dinner","title":"Dinner together","level":"B1","scene":"商量一起吃晚饭","focus":"would you · contractions · weak for","lines":[
+      {"role":"A","text":"Would you like to go out for dinner?","zh":"你想出去吃晚饭吗？"},
+      {"role":"B","text":"That sounds great, but I've got to finish my work first.","zh":"听起来不错，不过我得先完成工作。"},
+      {"role":"A","text":"We can meet at eight, if that works for you.","zh":"如果你方便，我们可以八点见。"},
+      {"role":"B","text":"Perfect. I'll book a table.","zh":"太好了。我来订位。"}]},
+    {"id":"teamwork","title":"Working together","level":"B2","scene":"工作中沟通与协商","focus":"thought groups · weak forms · contractions","lines":[
+      {"role":"A","text":"I would have sent it earlier, but my connection dropped.","zh":"我本来会早点发，但刚才断网了。"},
+      {"role":"B","text":"That's all right. Could you go over the main points?","zh":"没关系。你能把要点再讲一下吗？"},
+      {"role":"A","text":"First, we need to agree on the budget, then set a date.","zh":"首先我们需要商定预算，然后定日期。"},
+      {"role":"B","text":"Let's talk about it after the meeting.","zh":"我们会后再聊聊吧。"}]}
+  ],
+  "lessons": [
+    {"id":"linking","title":"Join the edges","zh":"辅音 + 元音：把词连起来","type":"Linking","formula":["pick","it","up"],"sound":"/pɪk ɪt ʌp/ → /pɪ.kɪ.tʌp/","notice":"末尾的辅音直接滑向下一个元音，中间不重新起声。听起来连在一起，单词并没有消失。","steps":["先说 it‿up，让 /t/ 直接连向 up 的 /ʌ/。","再加 pick，让 /k/ 接到 it 的 /ɪ/：pick‿it‿up。","保持一口气说完；不要在 pick 后面额外加一个“呃”。"],"apart":"Pick. It. Up.","flow":"Pick it up.","practice":"Can you pick it up for me?","transfer":["Put it on the table, please.","Could I have a cup of coffee, please?"],"question":"pick it up 中，哪里可以连接？","options":["pick‿it 和 it‿up","只在 pick 后停顿","每个单词之间都停顿"],"answer":0,"why":"pick 的 /k/ 后面是 it 的元音；it 的 /t/ 后面又是 up 的元音。两处都可以自然连接。"},
+    {"id":"weak","title":"Let little words shrink","zh":"弱读：让小词轻一点","type":"Weak form","formula":["a","cup","of","coffee"],"sound":"a /ə/ · of /əv/","notice":"cup 和 coffee 承载主要意思。a 和 of 通常短而轻，不需要与它们一样响亮。","steps":["先把 cup 和 coffee 说清楚，找到两个信息重心。","在 cup 前轻轻放入 a /ə/，不要刻意读成字母 A。","把 of /əv/ 轻轻带过，连成 a cup‿of coffee。"],"apart":"A. Cup. Of. Coffee.","flow":"A cup of coffee.","practice":"Could I have a cup of coffee, please?","transfer":["I'm going to meet a friend for coffee.","We can meet at eight, if that works for you."],"question":"没有特别强调时，哪个词应更短、更轻？","options":["coffee","cup","of"],"answer":2,"why":"of 是连接关系的小词，常弱读为 /əv/。不是把它完全删掉，而是给它更少时间。"},
+    {"id":"reduction","title":"Catch the shortcut","zh":"缩读：听懂 going to → gonna","type":"Reduction","formula":["going","to","→ gonna"],"sound":"going to + verb → gonna + verb","notice":"表达打算、后面跟动词时，going to 在随意口语中可能缩成 gonna。标准书写仍使用 going to。","steps":["先确定结构：going to meet，to 后面是动作 meet。","把 going to 当成一个轻快的声音块，不要在中间停顿。","把注意力放回 meet 和 friend；缩读不是全句都加速。"],"apart":"I'm going to meet a friend.","flow":"I'm gonna meet a friend.","practice":"I'm going to meet a friend for coffee.","transfer":["What are you going to do this weekend?","Do you want to come with us?"],"question":"哪一句适合用 gonna 来理解口语发音？","options":["I'm going to school.","I'm going to meet a friend.","I'm going to the station."],"answer":1,"why":"meet 是动词，表示打算见朋友。school 和 the station 是目的地，不能直接替换成 gonna。"},
+    {"id":"assimilation","title":"Two sounds, one move","zh":"同化：did you 如何靠拢","type":"Assimilation","formula":["did","you","→ /dʒ/"],"sound":"/d/ + /j/ → /dʒ/","notice":"did 末尾的 /d/ 和 you 开头的 /j/ 在快一些的连贯语流里可能合成 /dʒ/，接近 jam 的起始音。","steps":["先分别找到 did 的尾音 /d/ 和 you 的起始音 /j/。","缩小两词之间的间隔，让舌头只做一次连续动作。","再放回问题：Did you get a chance? 重点仍落在内容词。"],"apart":"Did. You. Get. A. Chance?","flow":"Did you get a chance?","practice":"Did you get a chance to talk to him last night?","transfer":["Could you tell him I might be late?","Would you like to go out for dinner?"],"question":"这里合在一起的是哪两个音？","options":["/d/ 和 /j/","/t/ 和 /s/","两个相同的元音"],"answer":0,"why":"这是相邻辅音的变化。didja 只能当近似发音提示，不要把它写进正式句子。"},
+    {"id":"elision","title":"Notice the missing sound","zh":"省音：有些 /t/ 会变得听不见","type":"Elision","formula":["last","night","→ las(t) night"],"sound":"/st n/ → /s n/（可能出现）","notice":"last night 中，/t/ 夹在 /s/ 和 /n/ 之间，有时会被省略。不是所有说话者都会省，也不是每个 t 都能省。","steps":["先清楚地说 last night，注意 /s/、/t/、/n/ 连续出现。","再尝试从 /s/ 平滑接向 /n/，不刻意爆破 /t/。","听懂这个变化即可；自己清楚地保留 /t/ 也完全可以。"],"apart":"Last. Night.","flow":"Last night.","practice":"Did you get a chance to talk to him last night?","transfer":["Yes, we talked about next week.","It must be a good idea."],"question":"last night 中听不清 /t/，可能说明什么？","options":["last 这个词被整个删除了","句子一定说错了","/t/ 在辅音群中被省略了"],"answer":2,"why":"减少的是一个音，不是整个单词。音频示范可能保留 /t/；识别不同说法比强行省音更重要。"},
+    {"id":"h-drop","title":"Hear the hidden pronoun","zh":"弱读代词：tell him 中的 h","type":"Dropped sound","formula":["tell","him","→ tell (h)im"],"sound":"/tel hɪm/ → /tel ɪm/（非强调时）","notice":"在句子中、不强调 him 时，开头的 /h/ 有时不发，tell 的 /l/ 就能直接连接后面的元音。","steps":["先说完整的 tell him，知道两个词分别是什么。","在不强调 him 时，试着把 /l/ 直接接到 /ɪ/。","如果想强调“是他”，保留 him 的完整读音并给它重音。"],"apart":"Tell. Him.","flow":"Tell him.","practice":"Could you tell him I might be late?","transfer":["Did you get a chance to talk to him last night?","Of course. I'll send him a message."],"question":"什么时候更适合保留并强调 him？","options":["任何时候都必须删除 /h/","想强调“告诉的是他”时","每当说得快时"],"answer":1,"why":"语流变化取决于意思。要突出代词时，使用完整读音会更清楚。"}
+  ]
+}
